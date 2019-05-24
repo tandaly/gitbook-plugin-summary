@@ -64,17 +64,9 @@ const getFileDepth = path => path.match(/\//g).length
 const getDirDepth = path => getFileDepth(path) - 1
 
 const buildSummary = config => entries =>{
-  if(!config.introdutionConfig){
-    return entries.join('\n')
-  }
-  const topOnTop = config.introdutionConfig.topOnTop || false
   const title = config.introdutionConfig.title || "introdution"
   const file = config.introdutionConfig.file || "README.md"
-  if(topOnTop){
-    return `\n- [${title}](${file})\n` + entries.join('\n')
-  }else{
-    return entries.join('\n')  + `\n- [${title}](${file})\n`
-  }
+  return `\n- [${title}](${file})\n` + entries.join('\n')
 }
 
 
