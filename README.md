@@ -71,7 +71,7 @@ $ gitbook serve
 }
 ```
 
-* **excludeDir** 需要排除的目录，有些目录是用来放其他文件的，则排除掉，不生成目录，默认已经排除的目录：[ 'node_modules/**', '_book', '_layouts', '**/img' ]
+* **excludeDir** 需要排除的目录，有些目录是用来放其他文件的，则排除掉，不生成目录，默认已经排除的目录：```[ 'node_modules/**', '_book', '_layouts', '**/img' ]```
 * **readme** 默认使用"0-README.md" 来校验文件名，如果有其他个人的命名习惯，可以在这里修改。
 
 
