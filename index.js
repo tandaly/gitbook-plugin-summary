@@ -59,14 +59,16 @@ const renderEntry = config => file =>
   )
 
 const getConfig = (root, config) => {
-  const readmeFilename = config.get('structure.readme')
+  const readmeFilename = config.get('pluginsConfig.summary.readme') || '0-README.md'
+  const summaryFilename = config.get('pluginsConfig.summary.summary') || 'SUMMARY.md'
   const bookTitle = config.get('title')
-
+  const excludeDir = config.get("pluginsConfig.summary.excludeDir") || []
   return {
     root,
     bookTitle: Maybe.fromNullable(bookTitle),
     isReadme: path => path.includes(readmeFilename),
     readmeFilename,
-    summaryFilename: config.get('structure.summary')
+	excludeDir,
+    summaryFilename
   }
 }
