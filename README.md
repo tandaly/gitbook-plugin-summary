@@ -41,7 +41,9 @@ $ gitbook serve
 ### 命名
 
 * **0-README.md**: 会作为当前目录名的文件
-* **markdown文件**: 使用文件的第一个一级标题，作为文件名 (ex: `# title`)
+   ***markdown文件**: 使用文件的第一个一级标题，作为文件名 (ex: `# title`)*
+* **markdown文件**:
+  1. 可以使用or01-,or10- 等为前缀，来使目录文章有序
 
 #### 目录为root目录，就是和book.json在同一层级的目录
 
