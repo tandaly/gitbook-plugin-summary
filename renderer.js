@@ -22,8 +22,11 @@ const getDirTitle = path =>
     .getOrElse('NO_NAME') // shouldn't happen, right !?
 
 const formatTitle = title =>
-  title.replace(/^[0-9]*-/,'')
-    .replace(/(_|-)/g,' ').replace(/.md$/,"").replace(/\b\w/g, l => l.toUpperCase())
+  title
+    .replace(/^or[0-9]*-/,'') //文章目录排序用： or0- , or10-
+    // .replace(/(_|-)/g,' ')  //去掉下滑线和横线
+    .replace(/.md$/,"")       //去掉文件名后缀
+    // .replace(/\b\w/g, l => l.toUpperCase())  //首字母大写
 
 const getFileName = path =>
   Maybe.of(path.split('/'))
@@ -35,9 +38,11 @@ const fileEntry = isReadme => ([ filePath, parsedMarkdown ]) => {
   if (isReadme(filePath)) return
 
   const depth = getFileDepth(filePath)
-  //const fileTitle = formatTitle(getFileName(filePath))
-  const fileTitle = getFileTitle(parsedMarkdown)
-    .getOrElse(formatTitle(getFileName(filePath)))
+  //获取文件的名称，作为目录名
+  const fileTitle = formatTitle(getFileName(filePath))
+  //获取文件的第一个一级标题，作为目录名
+  // const fileTitle = getFileTitle(parsedMarkdown)
+  //   .getOrElse(formatTitle(getFileName(filePath)))
   return linkEntries(depth, fileTitle, filePath)
 }
 
