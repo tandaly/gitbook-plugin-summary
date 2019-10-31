@@ -24,6 +24,7 @@ const getDirTitle = path =>
 const formatTitle = title =>
   title
     .replace(/^or[0-9]*-/,'') //文章目录排序用： or0- , or10-
+    .replace(/\[\d+]/, "")    //去掉 cnblog 的ID
     // .replace(/(_|-)/g,' ')  //去掉下滑线和横线
     .replace(/.md$/,"")       //去掉文件名后缀
     // .replace(/\b\w/g, l => l.toUpperCase())  //首字母大写
