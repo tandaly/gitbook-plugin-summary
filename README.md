@@ -67,8 +67,13 @@ $ gitbook serve
 ```json
 "pluginsConfig": {
 	"summary" : {
-		"excludeDir":["assets","styles"],
-		"readme":"0-README.md"
+		"excludeDir":["assets","styles"], //需要排除的文件夹,排除的文件夹不会自动生成目录
+    "readme":"0-README.md" , //目录对应的文件, 默认是 0-README.md
+    "summary":"SUMMARY.md" , // 指定summary文件 , 默认是 SUMMARY.md
+    "introduction":{          // introduction 目录替换 . 
+      "title":"introduction", //系统默认是 introduction , 可以自己更改
+      "file":"README.md"      //系统默认是指向 根目录下的 README.md , 可以更改为自己的指定文件
+    }
 	}
 }
 ```
